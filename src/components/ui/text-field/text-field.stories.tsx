@@ -19,7 +19,8 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    // variant: 'primary',
+    label: 'input',
+    placeholder: 'input',
     // children: 'Primary Button',
     // disabled: false,
   },

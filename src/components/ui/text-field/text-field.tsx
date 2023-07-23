@@ -14,11 +14,12 @@ export type TextFieldProps = {
 } & ComponentProps<'input'>
 
 export const TextField = (props: TextFieldProps) => {
-  const { errorMessage } = props
+  const { errorMessage, label } = props
 
   return (
     <div className={s.root}>
-      <input type="text" className={s.input} />
+      <span>{label}</span>
+      <input type="text" className={s.input} placeholder={label} />
       {errorMessage && <div>{errorMessage}</div>}
     </div>
   )
