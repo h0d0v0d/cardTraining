@@ -1,3 +1,11 @@
 export const Button = () => {
-  return <button>click</button>
+  return (
+    <button
+      onClick={() => {
+        alert('click')
+      }}
+    >
+      click
+    </button>
+  )
 }
