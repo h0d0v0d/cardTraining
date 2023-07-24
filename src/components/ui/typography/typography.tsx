@@ -1,7 +1,9 @@
 import * as React from 'react'
+import { FC, PropsWithChildren } from 'react'
+
+import { getTag } from '../../../common/utilis'
 
 import './typography.scss'
-import { getTag } from '../../../common/utilis'
 
 export type Variant =
   | 'Large'
@@ -17,16 +19,16 @@ export type Variant =
   | 'Link_1'
   | 'Link_2'
 type TypographyProps = {
-  variant: Variant
-  text: string
+  variant?: Variant
+  text?: string
   href?: string
   style?: {}
 }
 
-export const Typography: React.FC<React.PropsWithChildren<TypographyProps>> = ({
+export const Typography: FC<PropsWithChildren<TypographyProps>> = ({
   children,
-  variant,
-  text,
+  variant = 'h2',
+  text = 'add in child text',
   ...restProps
 }) => {
   const Tag = getTag(variant)
