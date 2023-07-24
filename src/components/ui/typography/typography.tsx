@@ -7,8 +7,8 @@ type Variant =
   | 'h1'
   | 'h2'
   | 'h3'
-  | 'Body 1'
-  | 'Body 2'
+  | 'Body_1'
+  | 'Body_2'
   | 'Subtitle 1'
   | 'Subtitle 2'
   | 'Caption'
@@ -17,14 +17,20 @@ type Variant =
   | 'Link 2'
 type TypographyProps = {
   variant: Variant
-  as?: 'h1' | 'h2' | 'h3' | 'a' | 'p'
   text: string
+  as?: 'h1' | 'h2' | 'h3' | 'a' | 'span'
   to?: string
 }
 
-export const Typography: React.FC<TypographyProps> = ({ variant, text, as = 'p', to = '#' }) => {
+export const Typography: React.FC<React.PropsWithChildren<TypographyProps>> = ({
+  children,
+  variant,
+  as = 'span',
+  to = '#',
+  text,
+}) => {
   const Component = as
   const classs = `typography ${variant.toLowerCase()}`
 
-  return <Component className={classs}>{text}</Component>
+  return <Component className={classs}>{children || text}</Component>
 }

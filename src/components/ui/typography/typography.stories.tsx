@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>
 export const Large: Story = {
   args: {
     variant: 'h1',
-    text: 'very stronger text',
+    text: 'Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH',
   },
 }
