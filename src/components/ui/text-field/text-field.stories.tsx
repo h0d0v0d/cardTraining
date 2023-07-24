@@ -1,17 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { TextField } from './'
+import { useState } from 'react'
 
 const meta = {
   title: 'Components/TextField',
   component: TextField,
-  tags: ['autodocs'],
-  argTypes: {
-    // variant: {
-    //   options: ['primary', 'secondary', 'tertiary', 'link'],
-    //   control: { type: 'radio' },
-    // },
-  },
 } satisfies Meta<typeof TextField>
 
 export default meta
@@ -21,7 +15,60 @@ export const Primary: Story = {
   args: {
     label: 'input',
     placeholder: 'input',
-    // children: 'Primary Button',
-    // disabled: false,
+    disabled: false,
+    errorMessage: '',
+  },
+}
+export const Error: Story = {
+  args: {
+    label: 'input',
+    errorMessage: 'Error',
+    placeholder: 'input',
+    disabled: false,
+  },
+}
+export const Disabled: Story = {
+  args: {
+    label: 'input',
+    disabled: true,
+    placeholder: 'input',
+    errorMessage: '',
+  },
+}
+
+export const Password: Story = {
+  args: {
+    label: 'input',
+    placeholder: 'input',
+    password: true,
+    disabled: false,
+    errorMessage: '',
+  },
+}
+export const Search = {
+  render: (args: any) => {
+    const [text, setText] = useState('')
+
+    return (
+      <>
+        <TextField
+          search={args.search}
+          value={text}
+          onChange={e => setText(e.currentTarget.value)}
+          onClearClick={() => setText('')}
+          label={args.label}
+          placeholder={args.placeholder}
+          disabled={args.disabled}
+          errorMessage={args.errorMessage}
+        />
+      </>
+    )
+  },
+  args: {
+    label: 'Input',
+    placeholder: 'Search...',
+    search: true,
+    disabled: false,
+    errorMessage: '',
   },
 }
