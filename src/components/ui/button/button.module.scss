@@ -1,5 +1,36 @@
 .primary {
-  background-color: red;
+  background: var(--primary-500, #8C61FF);
+}
+
+.primary:default {
+  background: var(--primary-500, #8C61FF);
+  border-radius: 4px;
+  box-shadow: 0 4px 18px 0 rgb(140 97 255 / 35%);
+}
+
+.primary:active {
+  background: var(--primary-700, #704ECC);
+  border-radius: 4px;
+  box-shadow: 0 4px 18px 0 rgb(140 97 255 / 35%);
+}
+
+.primary:hover {
+  background: var(--primary-300, #A280FF);
+  border-radius: 4px;
+  box-shadow: 0 4px 18px 0 rgb(140 97 255 / 35%);
+}
+
+.primary:focus {
+  background: var(--primary-500, #8C61FF);
+  border: 2px solid var(--info-700, #2F68CC);
+  border-radius: 4px;
+  box-shadow: 0 4px 18px 0 rgb(140 97 255 / 35%);
+}
+
+.primary:disabled {
+  background: var(--primary-900, #382766);
+  border-radius: 4px;
+  box-shadow: 0 4px 18px 0 rgb(140 97 255 / 35%);
 }
 
 .secondary {
