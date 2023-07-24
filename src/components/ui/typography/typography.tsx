@@ -18,19 +18,34 @@ type Variant =
 type TypographyProps = {
   variant: Variant
   text: string
-  as?: 'h1' | 'h2' | 'h3' | 'a' | 'span'
   to?: string
+  class?: {}
 }
 
 export const Typography: React.FC<React.PropsWithChildren<TypographyProps>> = ({
   children,
   variant,
-  as = 'span',
-  to = '#',
   text,
+  ...restProps
 }) => {
-  const Component = as
+  const Tag = getTag(variant)
   const classs = `typography ${variant.toLowerCase()}`
 
-  return <Component className={classs}>{children || text}</Component>
+  return (
+    <Tag className={classs} {...restProps}>
+      {children || text}
+    </Tag>
+  )
+}
+
+const getTag = (variant: Variant) => {
+  if (/link_[12]/i.test(variant)) {
+    return 'a'
+  } else if (/h[123]/i.test(variant)) {
+    return variant as 'h1' | 'h2' | 'h3'
+  } else if (/body_[12]/i.test(variant)) {
+    return 'p'
+  } else {
+    return 'span'
+  }
 }

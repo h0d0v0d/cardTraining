@@ -1,8 +1,10 @@
 @import '../../../styles//typography';
+@import '../../../styles//colors';
 
 .typography{
     font-family: var(--font-family-primary);
     margin: 0;
+    color: var(--color-dark-900)
 }
 
 .large{
@@ -69,10 +71,12 @@
     font-size: var(--font-size-s);
     font-weight: var(--font-weight-regular);
     line-height:  var(--line-height-m);
+    color: var(--color-info-500);
 }
 
-.link_1{
+.link_2{
     font-size: var(--font-size-xs);
     font-weight: var(--font-weight-regular);
     line-height:  var(--line-height-s);
+    color: var(--color-info-500);
 }
