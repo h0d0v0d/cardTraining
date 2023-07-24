@@ -18,8 +18,8 @@ type Variant =
 type TypographyProps = {
   variant: Variant
   text: string
-  to?: string
-  class?: {}
+  href?: string
+  style?: {}
 }
 
 export const Typography: React.FC<React.PropsWithChildren<TypographyProps>> = ({
