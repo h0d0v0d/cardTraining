@@ -3,6 +3,118 @@
   flex-direction: column;
 }
 
-.input {
-  background-color: transparent;
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+
+  .input {
+    width: 100%;
+    margin-top: 1px;
+    padding: 6px 12px;
+
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-m);
+    color: var(--color-dark-100);
+
+    background-color: transparent;
+    border: 1px solid var(--color-dark-300);
+    border-radius: 2px;
+    outline: none;
+
+    &::placeholder {
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      color: var(--color-dark-100);
+    }
+
+    &.error {
+      color: var(--color-danger-300);
+      border-color: var(--color-danger-300);
+    }
+
+    &:focus {
+      color: var(--color-dark-100);
+      border-color: var(--color-info-700);
+    }
+
+    &:active {
+      color: var(--color-light-100);
+      border-color: var(--color-light-100);
+
+      & ~ .iconEnd svg,
+      & ~ .iconStart svg {
+        color: var(--color-light-100);
+      }
+    }
+
+    &:disabled {
+      color: var(--color-dark-300);
+      border-color: var(--color-dark-300);
+
+      &::placeholder {
+        color: var(--color-dark-300);
+      }
+
+      & ~ .iconEnd svg,
+      & ~ .iconStart svg {
+        color: var(--color-dark-300);
+      }
+    }
+
+    &:hover:not(:disabled, :active) {
+      color: var(--color-dark-100);
+      background-color: var(--color-dark-700);
+      border-color: var(--color-dark-300);
+    }
+
+    &[data-icon*='start'] {
+      padding-left: 40px;
+    }
+
+    &[data-icon*='end'] {
+      padding-right: 40px;
+    }
+  }
+
+  .iconStart {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+
+    display: grid;
+    place-items: center;
+
+    width: 20px;
+    height: 20px;
+  }
+
+  .clearButton {
+    all: unset;
+
+    cursor: pointer;
+
+    position: absolute;
+    right: 5px;
+
+    width: 20px;
+    height: 20px;
+  }
+
+  .iconEnd {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+
+    display: grid;
+    place-items: center;
+
+    width: 20px;
+    height: 20px;
+  }
 }
