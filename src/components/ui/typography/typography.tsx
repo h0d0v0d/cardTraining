@@ -1,8 +1,9 @@
 import * as React from 'react'
 
 import './typography.scss'
+import { getTag } from '../../../common/utilis'
 
-type Variant =
+export type Variant =
   | 'Large'
   | 'h1'
   | 'h2'
@@ -36,16 +37,4 @@ export const Typography: React.FC<React.PropsWithChildren<TypographyProps>> = ({
       {children || text}
     </Tag>
   )
-}
-
-const getTag = (variant: Variant) => {
-  if (/link_[12]/i.test(variant)) {
-    return 'a'
-  } else if (/h[123]/i.test(variant)) {
-    return variant as 'h1' | 'h2' | 'h3'
-  } else if (/body_[12]/i.test(variant)) {
-    return 'p'
-  } else {
-    return 'span'
-  }
 }
