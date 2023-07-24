@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import s from './typography.module.scss'
+import './typography.scss'
 
 type TypographyProps = {
   variant:
@@ -20,7 +20,7 @@ type TypographyProps = {
 
 export const Typography: React.FC<TypographyProps> = ({ variant, text, as = 'p', to = '#' }) => {
   const Component = as
-  const classs = variant.toLowerCase()
+  const classs = `typography ${variant.toLowerCase()}`
 
-  return <Component className={s[classs]}>{text}</Component>
+  return <Component className={classs}>{text}</Component>
 }

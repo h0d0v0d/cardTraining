@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>
 export const Large: Story = {
   args: {
     variant: 'Large',
-    text: 'text',
+    text: 'very stronger text',
   },
 }
