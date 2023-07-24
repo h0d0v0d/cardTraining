@@ -1,13 +1,13 @@
 import { IconWrapper, IconProps } from '../IconWrapper.tsx'
 
-const Search = (allProps: IconProps) => {
+export const Search = (allProps: IconProps) => {
   const { svgProps: props, ...restProps } = allProps
 
   return (
     <IconWrapper
       icon={
         <svg
-          fill="none"
+          fill="currentColor"
           width="100%"
           height="100%"
           xmlns="http://www.w3.org/2000/svg"
@@ -24,5 +24,3 @@ const Search = (allProps: IconProps) => {
     />
   )
 }
-
-export default Search
