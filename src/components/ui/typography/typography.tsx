@@ -9,12 +9,12 @@ type Variant =
   | 'h3'
   | 'Body_1'
   | 'Body_2'
-  | 'Subtitle 1'
-  | 'Subtitle 2'
+  | 'Subtitle_1'
+  | 'Subtitle_2'
   | 'Caption'
   | 'Overline'
-  | 'Link 1'
-  | 'Link 2'
+  | 'Link_1'
+  | 'Link_2'
 type TypographyProps = {
   variant: Variant
   text: string
