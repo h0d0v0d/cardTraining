@@ -1,0 +1,40 @@
+import { FC } from 'react'
+
+import Logo from '../../../assets/img/Logo.png'
+import userPhotoDefault from '../../../assets/img/userPhoto.png'
+import { Button } from '../button/button.tsx'
+import { Typography } from '../typography'
+
+import s from './header.module.scss'
+
+type HeaderProps = {
+  isLogin?: boolean
+  userName?: string
+  userPhoto?: string
+}
+
+export const Header: FC<HeaderProps> = ({ isLogin = false, userName, userPhoto }) => {
+  return (
+    <div className={s.root}>
+      <div className={s.logo}>
+        <img src={Logo} alt="" />
+      </div>
+
+      {isLogin ? (
+        <div className={s.rightBlock}>
+          <Typography
+            variant={'Subtitle_1'}
+            style={{ borderBottom: '1px dashed var(--color-light-100)' }}
+          >
+            {userName}
+          </Typography>
+          <div className={s.userPhoto}>
+            <img src={userPhoto ? userPhoto : userPhotoDefault} alt="" />
+          </div>
+        </div>
+      ) : (
+        <Button />
+      )}
+    </div>
+  )
+}
