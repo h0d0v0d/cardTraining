@@ -5,7 +5,16 @@ export function App() {
   return (
     <div>
       <div>f</div>
-      <Button variant={'primary'} as={'a'} href={'/link'}>
+      <Button variant={'primary'} >
+        Hello
+      </Button>
+      <Button variant={'link'} >
+        Hello
+      </Button>
+      <Button variant={'tertiary'} >
+        Hello
+      </Button>
+      <Button variant={'secondary'} >
         Hello
       </Button>
       <TextField />
