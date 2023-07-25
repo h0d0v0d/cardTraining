@@ -1,3 +1,7 @@
 export { Close } from './Close.tsx'
-export { Search } from './Search.tsx'
+export { Delete } from './Delete.tsx'
+export { Learn } from './Learn.tsx'
+export { LogOut } from './LogOut.tsx'
 export { PasswordEye } from './PasswordEye.tsx'
+export { Search } from './Search.tsx'
+export { User } from './User.tsx'
