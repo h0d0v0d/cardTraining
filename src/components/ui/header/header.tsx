@@ -17,7 +17,9 @@ export const Header: FC<HeaderProps> = ({ isLogin = false, userName, userPhoto }
   return (
     <div className={s.root}>
       <div className={s.logo}>
-        <img src={Logo} alt="" />
+        <a href="#" target={'_blank'}>
+          <img src={Logo} alt="" />
+        </a>
       </div>
 
       {isLogin ? (
@@ -28,9 +30,10 @@ export const Header: FC<HeaderProps> = ({ isLogin = false, userName, userPhoto }
           >
             {userName}
           </Typography>
-          <div className={s.userPhoto}>
+
+          <button className={s.userPhoto}>
             <img src={userPhoto ? userPhoto : userPhotoDefault} alt="" />
-          </div>
+          </button>
         </div>
       ) : (
         <Button />
