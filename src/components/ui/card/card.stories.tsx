@@ -12,7 +12,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const link: Story = {
+export const Primary: Story = {
   render: args => <Card title={args.title}>fdgfgfg</Card>,
   args: {
     title: 'Some title',
