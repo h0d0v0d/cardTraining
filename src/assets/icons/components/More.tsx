@@ -14,7 +14,7 @@ export const More = (allProps: IconProps) => {
           viewBox="0 0 24 24"
           {...props}
         >
-          <circle cx="12" cy="12" r="8.5" stroke="black" />
+          <circle cx="12" cy="12" r="8.5" stroke="currentColor" />
           <g clipPath="url(#clip0_5928_6379)">
             <path
               d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
