@@ -14,7 +14,7 @@ export const IconWrapper: React.FC<{ icon: React.ReactNode } & IconProps> = ({
   autoSize,
   ...restProps
 }) => {
-  const color = colorProp ? colorProp : '#fff'
+  const color = colorProp ? colorProp : 'var(--color-light-100)'
   const size = sizeProp ? `${sizeProp}px` : '24px'
 
   return (
@@ -26,6 +26,7 @@ export const IconWrapper: React.FC<{ icon: React.ReactNode } & IconProps> = ({
         width: size,
         height: size,
         display: 'inline-flex',
+        fontSize: 'inherit',
       }}
       {...restProps}
     >
