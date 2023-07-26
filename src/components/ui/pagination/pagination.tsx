@@ -86,7 +86,7 @@ const Dots: FC = () => {
   return <span className={s.dots}>&#8230;</span>
 }
 
-export const ShowOnPageSelect: FC<PerPageSelectProps> = ({
+export const ShowOnPageSelect: FC<ShowOnPageSelectProps> = ({
   selectCurrent,
   selectOptions,
   onSelectChange,
@@ -107,7 +107,7 @@ export const ShowOnPageSelect: FC<PerPageSelectProps> = ({
 }
 
 //types
-export type PerPageSelectProps = {
+export type ShowOnPageSelectProps = {
   selectCurrent?: number
   selectOptions: number[]
   onSelectChange?: (item: number) => void
@@ -117,7 +117,7 @@ type PaginationProps = {
   onChange: (page: number) => void
   siblings?: number //кол-во сосендих отображаемых стр от текущей
   count: number //общее число старниц
-} & PerPageSelectProps
+} & ShowOnPageSelectProps
 
 type MainPaginationButtonsProps = {
   paginationRange: (number | string)[]
