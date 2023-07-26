@@ -1,3 +1,9 @@
+import { Header } from './components/ui/header'
+
 export function App() {
-  return <div>App</div>
+  return (
+    <div>
+      <Header isLogin={false} />
+    </div>
+  )
 }
