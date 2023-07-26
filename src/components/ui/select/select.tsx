@@ -23,12 +23,17 @@ export const Select: FC<ShowOnPageSelectProps> = ({
 }) => {
   return (
     <S.Root value={selectCurrent} onValueChange={onSelectChange} disabled={disabled}>
-      <Typography variant={'Body_2'} style={{ color: 'var(--color-dark-100)' }}>
+      <Typography
+        variant={'Body_2'}
+        style={{ color: disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)' }}
+      >
         {label}
       </Typography>
       <S.Trigger className={s.trigger}>
         <S.Value aria-label={selectCurrent}>
-          <Typography variant={'Body_1'}>{selectCurrent}</Typography>
+          <Typography variant={'Body_1'} style={{ color: disabled ? 'var(--color-dark-300)' : '' }}>
+            {selectCurrent}
+          </Typography>
         </S.Value>
         <ArrowDown size={16} />
       </S.Trigger>
