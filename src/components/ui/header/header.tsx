@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import { clsx } from 'clsx'
+
 import Logo from '../../../assets/img/Logo.png'
 import userPhotoDefault from '../../../assets/img/userPhoto.png'
 import { Button } from '../button/button.tsx'
@@ -16,28 +18,30 @@ type HeaderProps = {
 export const Header: FC<HeaderProps> = ({ isLogin = false, userName, userPhoto }) => {
   return (
     <div className={s.root}>
-      <div className={s.logo}>
-        <a href="#" target={'_blank'}>
-          <img src={Logo} alt="" />
-        </a>
-      </div>
-
-      {isLogin ? (
-        <div className={s.rightBlock}>
-          <Typography
-            variant={'Subtitle_1'}
-            style={{ borderBottom: '1px dashed var(--color-light-100)' }}
-          >
-            {userName}
-          </Typography>
-
-          <button className={s.userPhoto}>
-            <img src={userPhoto ? userPhoto : userPhotoDefault} alt="" />
-          </button>
+      <div className={clsx(s.container, 'container')}>
+        <div className={s.logo}>
+          <a href="#" target={'_blank'}>
+            <img src={Logo} alt="" />
+          </a>
         </div>
-      ) : (
-        <Button />
-      )}
+
+        {isLogin ? (
+          <div className={s.rightBlock}>
+            <Typography
+              variant={'Subtitle_1'}
+              style={{ borderBottom: '1px dashed var(--color-light-100)' }}
+            >
+              {userName}
+            </Typography>
+
+            <button className={s.userPhoto}>
+              <img src={userPhoto ? userPhoto : userPhotoDefault} alt="" />
+            </button>
+          </div>
+        ) : (
+          <Button />
+        )}
+      </div>
     </div>
   )
 }
