@@ -3,6 +3,7 @@ import { FC, memo } from 'react'
 import { clsx } from 'clsx'
 
 import { ArrowBack, ArrowForward } from '../../../assets/icons/components'
+import { Typography } from '../typography'
 
 import s from './pagination.module.scss'
 import { usePagination } from './usePagination.ts'
@@ -29,6 +30,7 @@ export const Pagination: FC<PaginationProps> = ({ page, onChange, siblings = 1, 
         paginationRange={paginationRange}
       />
       <NextButton onClick={handleNextPageClicked} disabled={page === count} />
+      <ShowOnPageSelect selectOptions={[10, 20, 30, 50, 100]} />
     </div>
   )
 }
@@ -84,13 +86,39 @@ const Dots: FC = () => {
   return <span className={s.dots}>&#8230;</span>
 }
 
+export const ShowOnPageSelect: FC<PerPageSelectProps> = ({
+  selectCurrent,
+  selectOptions,
+  onSelectChange,
+}) => {
+  const options = selectOptions.map(value => (
+    <option key={value} value={value}>
+      {value}
+    </option>
+  ))
+
+  return (
+    <div className={s.selectBox}>
+      <Typography variant={'Body_2'}>Показать</Typography>
+      <select>{options}</select>
+      <Typography variant={'Body_2'}>на странице</Typography>
+    </div>
+  )
+}
+
 //types
+export type PerPageSelectProps = {
+  selectCurrent?: number
+  selectOptions: number[]
+  onSelectChange?: (item: number) => void
+}
 type PaginationProps = {
   page: number //текущая страница
   onChange: (page: number) => void
   siblings?: number //кол-во сосендих отображаемых стр от текущей
   count: number //общее число старниц
-}
+} & PerPageSelectProps
+
 type MainPaginationButtonsProps = {
   paginationRange: (number | string)[]
   currentPage: number
