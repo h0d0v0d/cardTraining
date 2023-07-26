@@ -1,9 +1,11 @@
 import { ComponentProps, ReactNode, KeyboardEvent, FC } from 'react'
-import s from './text-field.module.scss'
-import { Close, Search } from '../../../assets/icons/components'
+
 import { clsx } from 'clsx'
+
+import { Close, Search, PasswordEye } from '../../../assets/icons/components'
 import { Typography } from '../typography'
-import { PasswordEye } from '../../../assets/icons/components'
+
+import s from './text-field.module.scss'
 
 export type TextFieldProps = {
   value?: string
@@ -26,19 +28,22 @@ export const TextField: FC<TextFieldProps> = ({
   ...rest
 }) => {
   let iconStart: ReactNode | null = null
+
   if (search) iconStart = <Search color={'var(--color-dark-100)'} size={20} />
   let iconEnd: ReactNode | null = null
+
   if (password) iconEnd = <PasswordEye color={'var(--color-light-100)'} size={20} />
 
   const isShowClearButton = onClearClick && rest?.value?.length! > 0
   const dataIconStart = iconStart ? 'start' : ''
   const dataIconEnd = isShowClearButton || iconEnd ? 'end' : ''
   const dataIcon = dataIconStart + dataIconEnd
+
   return (
     <div className={s.root}>
       {!search && (
         <Typography
-          variant={'body_2'}
+          variant={'Body_2'}
           style={{ color: rest.disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)' }}
         >
           {label}
@@ -67,7 +72,7 @@ export const TextField: FC<TextFieldProps> = ({
         )}
       </div>
       {errorMessage && (
-        <Typography variant={'caption'} style={{ color: 'var(--color-danger-300)' }}>
+        <Typography variant={'Caption'} style={{ color: 'var(--color-danger-300)' }}>
           {errorMessage}
         </Typography>
       )}
