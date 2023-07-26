@@ -1,70 +1,55 @@
 .root {
   display: flex;
-
-  //gap: 25px;
+  gap: 12px;
   align-items: center;
-}
-
-@mixin item {
-  all: unset;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 24px;
-  height: 24px;
-
-  color: var(--color-text-primary);
-
-  border-radius: var(--border-radius-s);
 }
 
 .pageBtn {
-  @include item;
-
+  all: unset;
   cursor: pointer;
+  padding: 0 8px;
+  border-radius: 2px;
 
-  &:focus-visible {
-    outline: var(--outline-focus);
+  &.selected {
+    color: var(--color-dark-900);
+    background-color: var(--color-light-100);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-dark-500);
+  }
+
+  &:active {
+    color: var(--color-dark-900);
+    background-color: var(--color-light-100);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-info-700);
   }
 
   &:disabled {
-    cursor: initial;
-    opacity: 1;
+    cursor: auto;
+  }
+}
+
+.navigationBtn {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:disabled {
+    cursor: auto;
+    color: var(--color-dark-100);
   }
 
-  &:hover:not(&:disabled) {
-    background-color: var(--color-bg-focus);
-  }
-
-  &.selected {
-    color: var(--color-text-primary-contrast);
-    background-color: red;
+  &:focus {
+    outline: 2px solid var(--color-info-700);
   }
 }
 
 .dots {
-  @include item;
-}
-
-.icon {
-  .item:disabled & {
-    // important because icons have style prop
-    color: var(--color-action-disabled) !important;
-  }
-}
-
-.selectBox {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-
-  color: var(--color-text-primary);
-  white-space: nowrap;
-}
-
-.select {
-  flex-shrink: 0;
-  width: 50px;
+  margin-bottom: 6px;
+  padding: 0 8px;
 }

@@ -2,7 +2,7 @@ import { FC, memo } from 'react'
 
 import { clsx } from 'clsx'
 
-import { ArrowBack, ArrowForward, Dots } from '../../../assets/icons/components'
+import { ArrowBack, ArrowForward } from '../../../assets/icons/components'
 
 import s from './pagination.module.scss'
 import { usePagination } from './usePagination.ts'
@@ -54,7 +54,11 @@ const MainPaginationButtons: FC<MainPaginationButtonsProps> = ({
 
 const PageButton: FC<PageButtonProps> = memo(({ onClick, selected, page }) => {
   return (
-    <button onClick={() => onClick(page)} className={clsx(s.pageBtn, selected && s.selected)}>
+    <button
+      onClick={() => onClick(page)}
+      className={clsx(s.pageBtn, selected && s.selected)}
+      disabled={selected}
+    >
       {page}
     </button>
   )
@@ -63,7 +67,7 @@ const PageButton: FC<PageButtonProps> = memo(({ onClick, selected, page }) => {
 const PrevButton: FC<NavigationButtonProps> = memo(({ onClick, disabled }) => {
   return (
     <button className={s.navigationBtn} onClick={onClick} disabled={disabled}>
-      <ArrowBack size={16} />
+      <ArrowBack size={16} color={disabled ? 'var(--color-dark-100)' : ''} />
     </button>
   )
 })
@@ -71,10 +75,14 @@ const PrevButton: FC<NavigationButtonProps> = memo(({ onClick, disabled }) => {
 const NextButton: FC<NavigationButtonProps> = memo(({ onClick, disabled }) => {
   return (
     <button className={s.navigationBtn} onClick={onClick} disabled={disabled}>
-      <ArrowForward size={16} />
+      <ArrowForward size={16} color={disabled ? 'var(--color-dark-100)' : ''} />
     </button>
   )
 })
+
+const Dots: FC = () => {
+  return <span className={s.dots}>&#8230;</span>
+}
 
 //types
 type PaginationProps = {
