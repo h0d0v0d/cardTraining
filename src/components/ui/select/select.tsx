@@ -13,6 +13,7 @@ export type ShowOnPageSelectProps = {
   onSelectChange?: (item: string) => void
   label?: string
   disabled: boolean
+  className?: string
 }
 export const Select: FC<ShowOnPageSelectProps> = ({
   selectCurrent,
@@ -20,16 +21,19 @@ export const Select: FC<ShowOnPageSelectProps> = ({
   onSelectChange,
   label,
   disabled,
+  className,
 }) => {
   return (
     <S.Root value={selectCurrent} onValueChange={onSelectChange} disabled={disabled}>
-      <Typography
-        variant={'Body_2'}
-        style={{ color: disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)' }}
-      >
-        {label}
-      </Typography>
-      <S.Trigger className={s.trigger}>
+      {label && (
+        <Typography
+          variant={'Body_2'}
+          style={{ color: disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)' }}
+        >
+          {label}
+        </Typography>
+      )}
+      <S.Trigger className={clsx(s.trigger, className && s[className])}>
         <S.Value aria-label={selectCurrent}>
           <Typography variant={'Body_1'} style={{ color: disabled ? 'var(--color-dark-300)' : '' }}>
             {selectCurrent}
@@ -38,7 +42,7 @@ export const Select: FC<ShowOnPageSelectProps> = ({
         <ArrowDown size={16} />
       </S.Trigger>
       <S.Portal>
-        <S.Content className={s.content} position={'popper'}>
+        <S.Content className={clsx(s.content, className && s[className])} position={'popper'}>
           <S.Viewport>
             <S.Group>
               {selectOptions.map(option => (

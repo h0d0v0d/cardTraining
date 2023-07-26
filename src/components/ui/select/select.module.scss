@@ -47,6 +47,12 @@
   }
 }
 
+.trigger.pagination {
+  width: 58px;
+  padding: 0 6px;
+  background-color: var(--color-dark-700);
+}
+
 .content {
   overflow: hidden;
 
@@ -75,10 +81,22 @@
     }
 
     &:hover {
-      color: var(--color-accent-300);
       background-color: var(--color-accent-900);
       border-color: var(--color-accent-900);
       transition: color 0.1s ease-in-out;
+
+      p {
+        color: var(--color-accent-300);
+      }
     }
+  }
+}
+
+.content.pagination {
+  width: 58px;
+  background-color: var(--color-dark-700);
+
+  .item {
+    padding: 0 6px;
   }
 }

@@ -12,7 +12,7 @@ const meta = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-export const Primary: Story = {
+export const Example1: Story = {
   render: (args: ShowOnPageSelectProps) => {
     const [value, setValue] = useState(args.selectCurrent)
 
@@ -23,7 +23,7 @@ export const Primary: Story = {
         selectOptions={args.selectOptions}
         label={args.label}
         disabled={args.disabled}
-      ></Select>
+      />
     )
   },
   args: {
@@ -31,5 +31,27 @@ export const Primary: Story = {
     selectOptions: ['Select-box-1', 'Select-box-2', 'Select-box-3', 'Select-box-4'],
     label: 'Select',
     selectCurrent: 'Select-box-1',
+  },
+}
+export const Example2: Story = {
+  render: (args: ShowOnPageSelectProps) => {
+    const [value, setValue] = useState(args.selectCurrent)
+
+    return (
+      <Select
+        selectCurrent={value}
+        onSelectChange={setValue}
+        selectOptions={args.selectOptions}
+        label={args.label}
+        disabled={args.disabled}
+        className={args.className}
+      />
+    )
+  },
+  args: {
+    disabled: false,
+    selectOptions: ['10', '20', '30', '50', '100'],
+    selectCurrent: '100',
+    className: 'pagination',
   },
 }
