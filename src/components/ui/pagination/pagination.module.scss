@@ -15,10 +15,6 @@
     background-color: var(--color-light-100);
   }
 
-  &:hover:not(:disabled) {
-    background-color: var(--color-dark-500);
-  }
-
   &:active {
     color: var(--color-dark-900);
     background-color: var(--color-light-100);
@@ -30,6 +26,10 @@
 
   &:disabled {
     cursor: auto;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-dark-500);
   }
 }
 
