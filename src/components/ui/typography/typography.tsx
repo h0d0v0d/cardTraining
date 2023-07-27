@@ -23,7 +23,7 @@ type TypographyProps<T extends ElementType = 'p'> = {
   as?: T
   variant?: Variant
   text?: string
-  style?: {}
+  color?: string
 }
 
 export const Typography = <T extends ElementType = 'p'>({
@@ -31,13 +31,13 @@ export const Typography = <T extends ElementType = 'p'>({
   children,
   variant = 'h2',
   text = '',
-  ...restProps
+  color = 'var(--color-light-100)',
 }: PropsWithChildren<TypographyProps<T>>) => {
   const Component = as || getTag(variant)
   const classs = clsx(s.typography, s[variant.toLowerCase()])
 
   return (
-    <Component className={classs} {...restProps}>
+    <Component className={classs} style={{ color: color }}>
       {children || text}
     </Component>
   )
