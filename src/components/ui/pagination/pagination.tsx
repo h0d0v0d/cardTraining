@@ -3,12 +3,21 @@ import { FC, memo } from 'react'
 import { clsx } from 'clsx'
 
 import { ArrowBack, ArrowForward } from '../../../assets/icons/components'
+import { Select } from '../select'
 import { Typography } from '../typography'
 
 import s from './pagination.module.scss'
 import { usePagination } from './usePagination.ts'
 
-export const Pagination: FC<PaginationProps> = ({ page, onChange, siblings = 1, count }) => {
+export const Pagination: FC<PaginationProps> = ({
+  page,
+  onChange,
+  siblings = 1,
+  count,
+  onSelectChange,
+  selectOptions,
+  selectCurrent,
+}) => {
   const {
     paginationRange,
     handlePreviousPageClicked,
@@ -30,7 +39,11 @@ export const Pagination: FC<PaginationProps> = ({ page, onChange, siblings = 1, 
         paginationRange={paginationRange}
       />
       <NextButton onClick={handleNextPageClicked} disabled={page === count} />
-      <ShowOnPageSelect selectOptions={[10, 20, 30, 50, 100]} />
+      <ShowOnPageSelect
+        selectOptions={selectOptions}
+        selectCurrent={selectCurrent}
+        onSelectChange={onSelectChange}
+      />
     </div>
   )
 }
@@ -91,16 +104,15 @@ export const ShowOnPageSelect: FC<ShowOnPageSelectProps> = ({
   selectOptions,
   onSelectChange,
 }) => {
-  const options = selectOptions.map(value => (
-    <option key={value} value={value}>
-      {value}
-    </option>
-  ))
-
   return (
     <div className={s.selectBox}>
       <Typography variant={'Body_2'}>Показать</Typography>
-      <select>{options}</select>
+      <Select
+        selectCurrent={selectCurrent}
+        onSelectChange={onSelectChange}
+        selectOptions={selectOptions}
+        className={'pagination'}
+      />
       <Typography variant={'Body_2'}>на странице</Typography>
     </div>
   )
@@ -108,11 +120,11 @@ export const ShowOnPageSelect: FC<ShowOnPageSelectProps> = ({
 
 //types
 export type ShowOnPageSelectProps = {
-  selectCurrent?: number
-  selectOptions: number[]
-  onSelectChange?: (item: number) => void
+  selectCurrent: string
+  selectOptions: string[]
+  onSelectChange?: (item: string) => void
 }
-type PaginationProps = {
+export type PaginationProps = {
   page: number //текущая страница
   onChange: (page: number) => void
   siblings?: number //кол-во сосендих отображаемых стр от текущей
