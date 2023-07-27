@@ -4,7 +4,8 @@ import { Typography } from './components/ui/typography'
 export function App() {
   return (
     <div>
-      <Typography variant="Caption" as="a" href="#" />
+      <Header />
+      <Typography variant="Link_1" text="link" as="a" href="#" />
     </div>
   )
 }

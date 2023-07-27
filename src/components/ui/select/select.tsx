@@ -28,14 +28,14 @@ export const Select: FC<ShowOnPageSelectProps> = ({
       {label && (
         <Typography
           variant={'Body_2'}
-          style={{ color: disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)' }}
+          color={disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)'}
         >
           {label}
         </Typography>
       )}
       <S.Trigger className={clsx(s.trigger, className && s[className])}>
         <S.Value aria-label={selectCurrent}>
-          <Typography variant={'Body_1'} style={{ color: disabled ? 'var(--color-dark-300)' : '' }}>
+          <Typography variant={'Body_1'} color={disabled ? 'var(--color-dark-300)' : ''}>
             {selectCurrent}
           </Typography>
         </S.Value>

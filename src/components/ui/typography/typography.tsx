@@ -32,12 +32,15 @@ export const Typography = <T extends ElementType = 'p'>({
   variant = 'h2',
   text = '',
   color = 'var(--color-light-100)',
+  style,
 }: PropsWithChildren<TypographyProps<T>>) => {
   const Component = as || getTag(variant)
   const classs = clsx(s.typography, s[variant.toLowerCase()])
 
+  color = Component === 'a' ? 'var(--color-info-500)' : color
+
   return (
-    <Component className={classs} style={{ color: color }}>
+    <Component className={classs} style={{ color, ...style }}>
       {children || text}
     </Component>
   )
