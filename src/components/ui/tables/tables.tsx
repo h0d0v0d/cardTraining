@@ -4,7 +4,6 @@ import { clsx } from 'clsx'
 
 import { Typography } from '../typography'
 
-import { EditBlock } from './edit-block/edit-block.tsx'
 import s from './tables.module.scss'
 
 type Column = {
@@ -56,7 +55,7 @@ export const Cell: FC<CellProps> = ({ children, className, img }) => {
         {typeof children === 'string' ? (
           <Typography variant={'Body_2'}>{children}</Typography>
         ) : (
-          <EditBlock>{children}</EditBlock>
+          <> {children}</>
         )}
       </div>
     </td>
