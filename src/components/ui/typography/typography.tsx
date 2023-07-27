@@ -1,5 +1,4 @@
-import * as React from 'react'
-import { FC, PropsWithChildren } from 'react'
+import { ElementType, FC, PropsWithChildren } from 'react'
 
 import { getTag } from '../../../common/utilis'
 
@@ -18,25 +17,26 @@ export type Variant =
   | 'Overline'
   | 'Link_1'
   | 'Link_2'
-type TypographyProps = {
+type TypographyProps<T extends ElementType = 'p'> = {
+  as?: T
   variant?: Variant
   text?: string
-  href?: string
   style?: {}
 }
 
-export const Typography: FC<PropsWithChildren<TypographyProps>> = ({
+export const Typography = <T extends ElementType = 'p'>({
+  as,
   children,
   variant = 'h2',
-  text = 'add in child text',
+  text = '',
   ...restProps
-}) => {
-  const Tag = getTag(variant)
+}: PropsWithChildren<TypographyProps<T>>) => {
+  const Component = as || getTag(variant)
   const classs = `typography ${variant.toLowerCase()}`
 
   return (
-    <Tag className={classs} {...restProps}>
+    <Component className={classs} {...restProps}>
       {children || text}
-    </Tag>
+    </Component>
   )
 }
