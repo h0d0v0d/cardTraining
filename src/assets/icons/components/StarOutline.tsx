@@ -1,6 +1,6 @@
 import { IconWrapper, IconProps } from '../IconWrapper.tsx'
 
-export const Star = (allProps: IconProps) => {
+export const StarOutline = (allProps: IconProps) => {
   const { svgProps: props, ...restProps } = allProps
 
   return (
