@@ -12,7 +12,7 @@ export type ShowOnPageSelectProps = {
   selectOptions: string[]
   onSelectChange?: (item: string) => void
   label?: string
-  disabled: boolean
+  disabled?: boolean
   className?: string
 }
 export const Select: FC<ShowOnPageSelectProps> = ({
@@ -20,7 +20,7 @@ export const Select: FC<ShowOnPageSelectProps> = ({
   selectOptions,
   onSelectChange,
   label,
-  disabled,
+  disabled = false,
   className,
 }) => {
   return (
