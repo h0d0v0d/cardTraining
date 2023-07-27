@@ -1,9 +1,10 @@
 import { Header } from './components/ui/header'
+import { Typography } from './components/ui/typography'
 
 export function App() {
   return (
     <div>
-      <Header isLogin={false} />
+      <Typography variant="Caption" as="a" href="#" />
     </div>
   )
 }

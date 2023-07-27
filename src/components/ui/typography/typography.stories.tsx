@@ -86,7 +86,6 @@ export const Link1: Story = {
   args: {
     variant: 'Link_1',
     text: 'Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH',
-    href: 'https://tiraspol-news.ru/img/20230525/7a70af7086b2f43b96c3706289d73010.jpg',
   },
 }
 
@@ -94,6 +93,6 @@ export const Link2: Story = {
   args: {
     variant: 'Link_2',
     text: 'Carosserie Test Zürich Stauffacherstrasse 31 8004 Zürich, ZH, CH',
-    href: 'https://tiraspol-news.ru/img/20230525/480b13ddf36d45793155097c71046171.jpg',
+    as: 'a',
   },
 }

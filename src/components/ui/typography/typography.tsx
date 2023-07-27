@@ -1,4 +1,4 @@
-import { ElementType, FC, PropsWithChildren } from 'react'
+import { ComponentPropsWithoutRef, ElementType, FC, PropsWithChildren } from 'react'
 
 import clsx from 'clsx'
 
@@ -23,8 +23,9 @@ type TypographyProps<T extends ElementType = 'p'> = {
   as?: T
   variant?: Variant
   text?: string
+  style?: {}
   color?: string
-}
+} & ComponentPropsWithoutRef<T>
 
 export const Typography = <T extends ElementType = 'p'>({
   as,
