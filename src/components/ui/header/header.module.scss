@@ -1,0 +1,35 @@
+.root {
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 0;
+  background-color: var(--color-dark-700);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    width: 156px;
+    height: 36px;
+  }
+
+  .rightBlock {
+    display: flex;
+    align-items: center;
+
+    .userPhoto {
+      all: unset;
+
+      cursor: pointer;
+
+      overflow: hidden;
+
+      width: 36px;
+      height: 36px;
+      margin-left: 14px;
+
+      border-radius: 50%;
+    }
+  }
+}
