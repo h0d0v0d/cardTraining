@@ -1,8 +1,10 @@
 import { ElementType, FC, PropsWithChildren } from 'react'
 
+import clsx from 'clsx'
+
 import { getTag } from '../../../common/utilis'
 
-import './typography.scss'
+import s from './typography.module.scss'
 
 export type Variant =
   | 'Large'
@@ -32,7 +34,7 @@ export const Typography = <T extends ElementType = 'p'>({
   ...restProps
 }: PropsWithChildren<TypographyProps<T>>) => {
   const Component = as || getTag(variant)
-  const classs = `typography ${variant.toLowerCase()}`
+  const classs = clsx(s.typography, s[variant.toLowerCase()])
 
   return (
     <Component className={classs} {...restProps}>
