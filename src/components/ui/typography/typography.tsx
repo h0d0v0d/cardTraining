@@ -23,7 +23,6 @@ type TypographyProps<T extends ElementType = 'p'> = {
   as?: T
   variant?: Variant
   text?: string
-  style?: {}
   color?: string
 } & ComponentPropsWithoutRef<T>
 
