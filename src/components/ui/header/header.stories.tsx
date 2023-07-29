@@ -17,7 +17,7 @@ export const Primary: Story = {
   },
 }
 
-export const isLogin: Story = {
+export const IsLogin: Story = {
   args: {
     isLogin: true,
     userName: 'Ivan',
