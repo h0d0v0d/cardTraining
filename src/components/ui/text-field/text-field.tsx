@@ -2,10 +2,11 @@ import { ComponentProps, ReactNode, KeyboardEvent, FC } from 'react'
 
 import { clsx } from 'clsx'
 
-import { Close, Search, PasswordEye } from '../../../assets/icons/components'
 import { Typography } from '../typography'
 
 import s from './text-field.module.scss'
+
+import { Close, Search, PasswordEye } from '@/assets/icons/components'
 
 export type TextFieldProps = {
   value?: string
@@ -44,7 +45,7 @@ export const TextField: FC<TextFieldProps> = ({
       {!search && (
         <Typography
           variant={'Body_2'}
-          style={{ color: rest.disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)' }}
+          color={rest.disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)'}
         >
           {label}
         </Typography>
@@ -72,7 +73,7 @@ export const TextField: FC<TextFieldProps> = ({
         )}
       </div>
       {errorMessage && (
-        <Typography variant={'Caption'} style={{ color: 'var(--color-danger-300)' }}>
+        <Typography variant={'Caption'} color="var(--color-danger-300)">
           {errorMessage}
         </Typography>
       )}

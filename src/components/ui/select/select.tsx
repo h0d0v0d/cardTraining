@@ -3,10 +3,12 @@ import { FC, ForwardedRef, forwardRef, ReactNode } from 'react'
 import * as S from '@radix-ui/react-select'
 import { clsx } from 'clsx'
 
-import { ArrowDown } from '../../../assets/icons/components'
 import { Typography } from '../typography'
 
 import s from './select.module.scss'
+
+import { ArrowDown } from '@/assets/icons/components'
+
 export type ShowOnPageSelectProps = {
   selectCurrent: string
   selectOptions: string[]
@@ -28,14 +30,14 @@ export const Select: FC<ShowOnPageSelectProps> = ({
       {label && (
         <Typography
           variant={'Body_2'}
-          style={{ color: disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)' }}
+          color={disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)'}
         >
           {label}
         </Typography>
       )}
       <S.Trigger className={clsx(s.trigger, className && s[className])}>
         <S.Value aria-label={selectCurrent}>
-          <Typography variant={'Body_1'} style={{ color: disabled ? 'var(--color-dark-300)' : '' }}>
+          <Typography variant={'Body_1'} color={disabled ? 'var(--color-dark-300)' : ''}>
             {selectCurrent}
           </Typography>
         </S.Value>

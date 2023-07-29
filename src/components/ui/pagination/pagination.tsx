@@ -2,12 +2,13 @@ import { FC, memo } from 'react'
 
 import { clsx } from 'clsx'
 
-import { ArrowBack, ArrowForward } from '../../../assets/icons/components'
 import { Select } from '../select'
 import { Typography } from '../typography'
 
 import s from './pagination.module.scss'
 import { usePagination } from './usePagination.ts'
+
+import { ArrowBack, ArrowForward } from '@/assets/icons/components'
 
 export const Pagination: FC<PaginationProps> = ({
   page,
