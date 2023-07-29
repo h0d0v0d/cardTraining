@@ -1,7 +1,7 @@
 .root {
   justify-content: space-between;
   width: 100%;
-  padding: 12px 0;
+  padding: 0.75rem 0;
   background-color: var(--color-dark-700);
 
   .container {
@@ -10,8 +10,8 @@
   }
 
   .logo {
-    width: 156px;
-    height: 36px;
+    width: 9.75rem;
+    height: 2.25rem;
   }
 
   .rightBlock {
@@ -25,9 +25,9 @@
 
       overflow: hidden;
 
-      width: 36px;
-      height: 36px;
-      margin-left: 14px;
+      width: 2.25rem;
+      height: 2.25rem;
+      margin-left: 0.875rem;
 
       border-radius: 50%;
     }
