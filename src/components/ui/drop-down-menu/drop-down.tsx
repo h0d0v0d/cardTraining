@@ -2,10 +2,11 @@ import { FC, ReactNode } from 'react'
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 
-import userPhotoDefault from '../../../assets/img/userPhoto.png'
 import { Typography } from '../typography'
 
 import s from './drop-down.module.scss'
+
+import userPhotoDefault from '@/assets/img/userPhoto.png'
 
 export const DropDown: FC<DropDownProps> = ({
   children,

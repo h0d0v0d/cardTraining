@@ -2,12 +2,13 @@ import { FC } from 'react'
 
 import { clsx } from 'clsx'
 
-import Logo from '../../../assets/img/Logo.png'
-import userPhotoDefault from '../../../assets/img/userPhoto.png'
-import { Button } from '../button/button.tsx'
+import { Button } from '../button'
 import { Typography } from '../typography'
 
 import s from './header.module.scss'
+
+import Logo from '@/assets/img/Logo.png'
+import userPhotoDefault from '@/assets/img/userPhoto.png'
 
 type HeaderProps = {
   isLogin?: boolean
