@@ -2,9 +2,9 @@ import { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react'
 
 import clsx from 'clsx'
 
-import { getTag } from '../../../common/utilis'
-
 import s from './typography.module.scss'
+
+import { getTag } from '@/common/utilis'
 
 export type Variant =
   | 'Large'
