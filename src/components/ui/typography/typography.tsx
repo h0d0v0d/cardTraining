@@ -1,9 +1,10 @@
-import * as React from 'react'
-import { FC, PropsWithChildren } from 'react'
+import { ComponentPropsWithoutRef, ElementType, PropsWithChildren } from 'react'
+
+import clsx from 'clsx'
 
 import { getTag } from '../../../common/utilis'
 
-import './typography.scss'
+import s from './typography.module.scss'
 
 export type Variant =
   | 'Large'
@@ -18,25 +19,30 @@ export type Variant =
   | 'Overline'
   | 'Link_1'
   | 'Link_2'
-type TypographyProps = {
+type TypographyProps<T extends ElementType = 'p'> = {
+  as?: T
   variant?: Variant
   text?: string
-  href?: string
-  style?: {}
-}
+  color?: string
+} & ComponentPropsWithoutRef<T>
 
-export const Typography: FC<PropsWithChildren<TypographyProps>> = ({
+export const Typography = <T extends ElementType = 'p'>({
+  as,
   children,
   variant = 'h2',
-  text = 'add in child text',
+  text = '',
+  color = 'var(--color-light-100)',
+  style,
   ...restProps
-}) => {
-  const Tag = getTag(variant)
-  const classs = `typography ${variant.toLowerCase()}`
+}: PropsWithChildren<TypographyProps<T>>) => {
+  const Component = as || getTag(variant)
+  const className = clsx(s.typography, s[variant.toLowerCase()])
+
+  color = Component === 'a' ? 'var(--color-info-500)' : color
 
   return (
-    <Tag className={classs} {...restProps}>
+    <Component className={className} style={{ color, ...style }} {...restProps}>
       {children || text}
-    </Tag>
+    </Component>
   )
 }

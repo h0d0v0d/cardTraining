@@ -44,7 +44,7 @@ export const TextField: FC<TextFieldProps> = ({
       {!search && (
         <Typography
           variant={'Body_2'}
-          style={{ color: rest.disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)' }}
+          color={rest.disabled ? 'var(--color-dark-300)' : 'var(--color-dark-100)'}
         >
           {label}
         </Typography>
@@ -72,7 +72,7 @@ export const TextField: FC<TextFieldProps> = ({
         )}
       </div>
       {errorMessage && (
-        <Typography variant={'Caption'} style={{ color: 'var(--color-danger-300)' }}>
+        <Typography variant={'Caption'} color="var(--color-danger-300)">
           {errorMessage}
         </Typography>
       )}

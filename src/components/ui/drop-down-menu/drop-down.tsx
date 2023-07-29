@@ -50,7 +50,7 @@ export const DropDownUserInfo: FC<DropDownUserInfoProps> = ({ email, name }) => 
         <UserPhoto></UserPhoto>
         <div className={s.infoContainer}>
           <Typography variant={'Subtitle_2'}>{name}</Typography>
-          <Typography variant={'Caption'} style={{ color: 'var(--color-dark-100)' }}>
+          <Typography variant={'Caption'} color="var(--color-dark-100)">
             {email}
           </Typography>
         </div>
