@@ -3,10 +3,12 @@ import { FC, ForwardedRef, forwardRef, ReactNode } from 'react'
 import * as S from '@radix-ui/react-select'
 import { clsx } from 'clsx'
 
-import { ArrowDown } from '../../../assets/icons/components'
 import { Typography } from '../typography'
 
 import s from './select.module.scss'
+
+import { ArrowDown } from '@/assets/icons/components'
+
 export type ShowOnPageSelectProps = {
   selectCurrent: string
   selectOptions: string[]

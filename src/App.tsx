@@ -1,5 +1,4 @@
-import { Header } from './components/ui/header'
-import { Typography } from './components/ui/typography'
+import { Typography, Header } from '@/components/ui'
 
 export function App() {
   return (

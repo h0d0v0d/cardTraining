@@ -2,10 +2,11 @@ import { ComponentProps, ReactNode, KeyboardEvent, FC } from 'react'
 
 import { clsx } from 'clsx'
 
-import { Close, Search, PasswordEye } from '../../../assets/icons/components'
 import { Typography } from '../typography'
 
 import s from './text-field.module.scss'
+
+import { Close, Search, PasswordEye } from '@/assets/icons/components'
 
 export type TextFieldProps = {
   value?: string
