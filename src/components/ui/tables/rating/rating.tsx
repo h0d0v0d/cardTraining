@@ -1,7 +1,6 @@
 import { FC } from 'react'
 
-import { Star } from '../../../../assets/icons/components'
-import { StarOutline } from '../../../../assets/icons/components/StarOutline.tsx'
+import { Star, StarOutline } from '@/assets/icons/components'
 type EditBlockProps = {
   value: number
 }
