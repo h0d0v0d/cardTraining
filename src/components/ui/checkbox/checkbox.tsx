@@ -2,6 +2,7 @@ import { FC } from 'react'
 
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
+import clsx from 'clsx'
 
 import s from './checkbox.module.scss'
 
@@ -24,10 +25,10 @@ export const Checkbox: FC<CheckboxProps> = ({
 }) => {
   const classNames = {
     container: s.container,
-    buttonWrapper: s.buttonWrapper,
+    buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
     root: s.root,
     indicator: s.indicator,
-    label: disabled ? s.disabled : s.label,
+    label: clsx(s.label, disabled && s.disabled),
   }
 
   return (
