@@ -18,7 +18,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const items: RadioItemType[] = [
-  { label: 'RadioGroup1', value: 'rg1' },
+  { label: 'RadioGroup1', value: 'rg1', disabled: true },
   { label: 'RadioGroup2', value: 'rg2' },
   { label: 'RadioGroup3', value: 'rg3' },
   { label: 'RadioGroup4', value: 'rg4' },
@@ -33,7 +33,7 @@ export const Primary: Story = {
   },
   args: {
     items,
-    defaultValue: 'rg1',
+    defaultValue: 'rg2',
     onChange: action('value changed'),
   },
 }

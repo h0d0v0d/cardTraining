@@ -9,6 +9,7 @@ import { Typography } from '@/components/ui'
 export type RadioItemType = {
   label: string
   value: string
+  disabled?: boolean
 }
 export type RadioGroupProps = {
   items: RadioItemType[]
@@ -22,10 +23,12 @@ export const RadioGroup: FC<RadioGroupProps> = ({ items, defaultValue, onChange 
       {items.map(i => (
         <div key={i.value}>
           <label className={s.label}>
-            <RG.Item className={s.item} value={i.value}>
+            <RG.Item className={s.item} value={i.value} disabled={i.disabled}>
               <RG.Indicator className={s.indicator} />
             </RG.Item>
-            <Typography variant={'Body_2'}>{i.label}</Typography>
+            <Typography variant={'Body_2'} color={i.disabled ? 'var(--color-light-900)' : ''}>
+              {i.label}
+            </Typography>
           </label>
         </div>
       ))}
