@@ -1,0 +1,117 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+
+  font-size: var(--font-size-s);
+  line-height: var(--line-height-m);
+  color: var(--color-text-primary);
+
+  &.disabled {
+    color: var(--color-checkbox-disabled, #808080);
+  }
+}
+
+.root {
+  cursor: pointer;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  background-color: var(--color-bg-primary);
+  border: 2px solid var(--color-border-secondary, #c3c1c7);
+  border-radius: 2px;
+
+  &::before {
+    content: '';
+
+    transform: rotate(+45deg);
+
+    display: inline-block;
+
+    width: 12px;
+    height: 10px;
+
+    opacity: 0;
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+  }
+
+  &:focus {
+    background-color: var(--color-bg-focus);
+  }
+
+  &:disabled:not([data-state='checked']) {
+    cursor: initial;
+    border-color: var(--color-checkbox-disabled, #808080);
+  }
+
+  &[data-state='checked'][disabled] {
+    cursor: initial;
+    background-color: var(--color-bg-disabled, #808080);
+    border: none;
+
+    &::before {
+      opacity: 1;
+      border: 2px solid #dcdae0;
+      border-top: none;
+      border-left: none;
+    }
+  }
+
+  &[data-state='checked'] {
+    background-color: var(--color-checkbox-disabled, #fff);
+    border: none;
+  }
+
+  &[data-state='checked']::before {
+    opacity: 1;
+  }
+}
+
+.buttonWrapper {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  background-color: rgb(255 255 255 / 0%);
+  border-radius: 50%;
+
+  &.disabled {
+    cursor: initial;
+  }
+
+  &:focus-within,
+  &:focus:not(.disabled) {
+    background-color: #808080;
+  }
+
+  &:hover:not(.disabled) {
+    background-color: #333;
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--color-bg-primary-active, #808080);
+  }
+}
+
+.indicator {
+  width: 18px;
+  height: 18px;
+}
