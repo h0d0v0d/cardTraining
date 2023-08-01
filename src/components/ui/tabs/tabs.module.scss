@@ -1,11 +1,5 @@
 @import '../../../styles/mixins';
 
-@mixin all-transitions {
-  @include transition(color);
-  @include transition(background-color);
-  @include transition(border-color);
-}
-
 .title {
   margin-bottom: 0.3125rem;
 }
@@ -19,7 +13,9 @@
     margin-bottom: 1.25rem;
 
     .trigger {
-      @include all-transitions;
+      @include transition(color);
+      @include transition(background-color);
+      @include transition(border-color);
 
       user-select: none;
       padding: 0.375rem 1.5rem;
@@ -41,15 +37,11 @@
       }
 
       &[data-state='active'] {
-        @include all-transitions;
-
         background-color: var(--color-accent-500);
         border-color: var(--color-accent-500);
       }
 
       &:focus {
-        @include all-transitions;
-
         position: relative;
         background-color: var(--color-dark-700);
         border-color: var(--color-info-700);
@@ -57,23 +49,17 @@
       }
 
       &:active {
-        @include all-transitions;
-
         background-color: var(--color-accent-500);
         border-color: var(--color-accent-500);
       }
 
       &:disabled {
-        @include all-transitions;
-
         color: var(--color-dark-300);
         background-color: var(--color-dark-700);
         border-color: var(--color-dark-300);
       }
 
       &:hover:not(:disabled, :active, [data-state='active']) {
-        @include all-transitions;
-
         background-color: var(--color-dark-300);
         border-color: var(--color-dark-100);
 
