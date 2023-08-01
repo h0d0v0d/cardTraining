@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { TabContent, Tabs, TabsProps, TabType } from './'
@@ -20,7 +21,7 @@ const tabs: TabType[] = [
 export const Primary: Story = {
   render: (args: TabsProps) => {
     return (
-      <Tabs tabs={args.tabs} title={args.title}>
+      <Tabs tabs={args.tabs} title={args.title} onValueChange={args.onValueChange}>
         <TabContent value={'my-cards'}>My cards</TabContent>
         <TabContent value={'all-cards'}>All cards</TabContent>
       </Tabs>
@@ -29,6 +30,7 @@ export const Primary: Story = {
   args: {
     tabs: tabs,
     title: 'Show packs cards',
+    onValueChange: action('value changed'),
   },
 }
 
@@ -42,7 +44,7 @@ const tabs2: TabType[] = [
 export const Disabled: Story = {
   render: (args: TabsProps) => {
     return (
-      <Tabs tabs={args.tabs} title={args.title}>
+      <Tabs tabs={args.tabs} title={args.title} onValueChange={args.onValueChange}>
         <TabContent value={'S1'}>Switcher1</TabContent>
         <TabContent value={'S2'}>Switcher2</TabContent>
         <TabContent value={'S3'}>Switcher3</TabContent>
@@ -53,5 +55,6 @@ export const Disabled: Story = {
   args: {
     tabs: tabs2,
     title: 'Title',
+    onValueChange: action('value changed'),
   },
 }
