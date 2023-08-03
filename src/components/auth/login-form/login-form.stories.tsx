@@ -17,6 +17,6 @@ export const Primary: Story = {
     return <LoginForm onLogin={args.onLogin} />
   },
   args: {
-    onLogin: action('value changed'),
+    onLogin: action('login'),
   },
 }
