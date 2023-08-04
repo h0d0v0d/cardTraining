@@ -6,14 +6,6 @@
 .label {
   display: flex;
   align-items: center;
-
-  font-size: var(--font-size-s);
-  line-height: var(--line-height-m);
-  color: var(--color-text-primary);
-
-  &.disabled {
-    color: var(--color-checkbox-disabled, #808080);
-  }
 }
 
 .root {
@@ -28,9 +20,10 @@
   width: 18px;
   height: 18px;
 
-  background-color: var(--color-bg-primary);
-  border: 2px solid var(--color-border-secondary, #c3c1c7);
+  background-color: rgb(255 255 255 / 0%);
+  border: 2px solid var(--color-light-900, #c3c1c7);
   border-radius: 2px;
+  outline: none;
 
   &::before {
     content: '';
@@ -41,6 +34,7 @@
 
     width: 12px;
     height: 10px;
+    margin-bottom: 2px;
 
     opacity: 0;
     border: 2px solid black;
@@ -48,30 +42,26 @@
     border-left: none;
   }
 
-  &:focus {
-    background-color: var(--color-bg-focus);
-  }
-
   &:disabled:not([data-state='checked']) {
     cursor: initial;
-    border-color: var(--color-checkbox-disabled, #808080);
+    border-color: var(--color-dark-100, #808080);
   }
 
   &[data-state='checked'][disabled] {
     cursor: initial;
-    background-color: var(--color-bg-disabled, #808080);
+    background-color: var(--color-dark-100, #808080);
     border: none;
 
     &::before {
       opacity: 1;
-      border: 2px solid #dcdae0;
+      border: 2px solid var(--color-light-700, #dcdae0);
       border-top: none;
       border-left: none;
     }
   }
 
   &[data-state='checked'] {
-    background-color: var(--color-checkbox-disabled, #fff);
+    background-color: var(--color-light-100, #fff);
     border: none;
   }
 
@@ -89,6 +79,7 @@
 
   width: 36px;
   height: 36px;
+  margin-right: 7px;
 
   background-color: rgb(255 255 255 / 0%);
   border-radius: 50%;
@@ -99,7 +90,7 @@
 
   &:focus-within,
   &:focus:not(.disabled) {
-    background-color: #808080;
+    background-color: var(--color-dark-100, #808080);
   }
 
   &:hover:not(.disabled) {
@@ -107,7 +98,7 @@
   }
 
   &:active:not(.disabled) {
-    background-color: var(--color-bg-primary-active, #808080);
+    background-color: var(--color-dark-100, #808080);
   }
 }
 

@@ -6,6 +6,9 @@ import clsx from 'clsx'
 
 import s from './checkbox.module.scss'
 
+import { Typography } from '@/components/ui'
+import { Variant } from '@/components/ui/typography'
+
 export type CheckboxProps = {
   checked?: boolean
   onChange?: (checked: boolean) => void
@@ -13,6 +16,7 @@ export type CheckboxProps = {
   required?: boolean
   label?: string
   id?: string
+  variantTypography?: Variant
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
@@ -22,6 +26,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   required,
   label,
   id,
+  variantTypography,
 }) => {
   const classNames = {
     container: s.container,
@@ -50,7 +55,12 @@ export const Checkbox: FC<CheckboxProps> = ({
             ></CheckboxRadix.Indicator>
           </CheckboxRadix.Root>
         </div>
-        {label}
+        <Typography
+          variant={variantTypography}
+          color={disabled ? 'var(--color-checkbox-disabled, #808080)' : ''}
+        >
+          {label}
+        </Typography>
       </LabelRadix.Root>
     </div>
   )
