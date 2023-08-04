@@ -6,7 +6,9 @@ export function App() {
     <div>
       <Header />
       <Typography variant="Link_1" text="link" as="a" href="#" />
-      <Checkbox variantTypography={'Body_2'} label={'dsad'}></Checkbox>
+      <Checkbox variantTypography={'Body_2'} label={'sad'}>
+        sadasdwe
+      </Checkbox>
     </div>
   )
 }

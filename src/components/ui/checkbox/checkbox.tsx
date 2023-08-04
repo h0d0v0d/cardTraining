@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 import * as CheckboxRadix from '@radix-ui/react-checkbox'
 import * as LabelRadix from '@radix-ui/react-label'
@@ -17,6 +17,7 @@ export type CheckboxProps = {
   label?: string
   id?: string
   variantTypography?: Variant
+  children?: ReactNode
 }
 
 export const Checkbox: FC<CheckboxProps> = ({
@@ -27,6 +28,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   label,
   id,
   variantTypography,
+  children,
 }) => {
   const classNames = {
     container: s.container,
@@ -47,19 +49,13 @@ export const Checkbox: FC<CheckboxProps> = ({
             disabled={disabled}
             required={required}
             id={id}
-          >
-            <CheckboxRadix.Indicator
-              className={classNames.indicator}
-              asChild
-              forceMount
-            ></CheckboxRadix.Indicator>
-          </CheckboxRadix.Root>
+          ></CheckboxRadix.Root>
         </div>
         <Typography
           variant={variantTypography}
-          color={disabled ? 'var(--color-checkbox-disabled, #808080)' : ''}
+          color={disabled ? 'var(--color-dark-100, #808080)' : ''}
         >
-          {label}
+          {children || label}
         </Typography>
       </LabelRadix.Root>
     </div>
