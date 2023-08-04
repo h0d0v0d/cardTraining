@@ -52,7 +52,7 @@ export const Checkbox: FC<CheckboxProps> = ({
           ></CheckboxRadix.Root>
         </div>
         <Typography
-          variant={variantTypography}
+          variant={variantTypography ? variantTypography : 'Body_2'}
           color={disabled ? 'var(--color-dark-100, #808080)' : ''}
         >
           {children || label}
