@@ -1,0 +1,59 @@
+.sliderRoot {
+  touch-action: none;
+  user-select: none;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 12.5rem;
+  height: 1.25rem;
+}
+
+.sliderTrack {
+  position: relative;
+
+  flex-grow: 1;
+
+  height: 0.375rem;
+
+  background-color: var(--color-accent-900, #382766);
+  border-radius: 625rem;
+}
+
+.sliderRange {
+  position: absolute;
+  height: 100%;
+  background-color: var(--color-accent-500, #8c61ff);
+  border-radius: 625rem;
+}
+
+.sliderThumb {
+  cursor: pointer;
+
+  display: block;
+
+  width: 1.25rem;
+  height: 1.25rem;
+
+  background-color: white;
+  border: 0.3125rem solid var(--color-accent-500, #8c61ff);
+  border-radius: 0.625rem;
+  box-shadow: 0 0.25rem 1.125rem 0 rgb(140 97 255 / 50%);
+}
+
+.sliderThumb:hover {
+  background-color: var(--color-light-100, #fff);
+  border: 0.3125rem solid var(--color-accent-300, #a280ff);
+}
+
+.sliderThumb:active {
+  background-color: var(--color-light-700, #dcdae0);
+  border: 0.3125rem solid var(--color-accent-700, #704ecc);
+}
+
+.sliderThumb:focus {
+  outline: 0.125rem solid var(--color-info-700, #2f68cc);
+  outline-offset: -0.0625rem;
+}
