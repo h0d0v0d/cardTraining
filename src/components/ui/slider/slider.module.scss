@@ -9,11 +9,11 @@
     align-items: center;
     justify-content: center;
 
-    width: 36px;
-    height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
 
-    border: 1px solid var(--dark-300, #4c4c4c);
-    border-radius: 2px;
+    border: 0.0625rem solid var(--dark-300, #4c4c4c);
+    border-radius: 0.125rem;
   }
 
   .sliderRoot {
@@ -27,7 +27,7 @@
 
     width: 12.5rem;
     height: 1.25rem;
-    margin: 12px;
+    margin: 0.75rem;
 
     .sliderTrack {
       position: relative;
