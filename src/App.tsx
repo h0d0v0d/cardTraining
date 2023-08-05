@@ -9,7 +9,7 @@ export function App() {
       <Typography variant="Link_1" text="link" as="a" href="#" />
       <Checkbox variantTypography={'h2'} label={'sad'} />
       <Checkbox>Sadasdwe</Checkbox>
-      <Slider />
+      <Slider disabled={true} />
     </div>
   )
 }

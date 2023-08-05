@@ -14,6 +14,11 @@ type Story = StoryObj<typeof meta>
 
 export const Sliders: Story = {
   args: {
-    label: 'Slider',
+    disabled: false,
+    min: 0,
+    max: 100,
+    step: 1,
+    defaultValue: [20, 75],
+    variantTypography: 'Body_2',
   },
 }
