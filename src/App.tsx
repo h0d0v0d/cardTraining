@@ -15,6 +15,7 @@ export function App() {
       <Checkbox>Sadasdwe</Checkbox>
       <Slider disabled={false} min={0} max={120} step={5} value={val1} onValueChange={setVal1} />
       <Slider defaultValue={[-5, 200]} min={-20} max={220} />
+      <Slider />
     </div>
   )
 }

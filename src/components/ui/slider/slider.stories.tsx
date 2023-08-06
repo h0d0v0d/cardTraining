@@ -20,5 +20,7 @@ export const Sliders: Story = {
     step: 1,
     defaultValue: [20, 75],
     variantTypography: 'Body_2',
+    value: undefined,
+    onValueChange: undefined,
   },
 }
