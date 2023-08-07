@@ -2,6 +2,8 @@ import { useState } from 'react'
 
 import { Typography, Header } from '@/components/ui'
 import { Checkbox } from '@/components/ui/checkbox'
+import { Modal } from '@/components/ui/modals/modal.tsx'
+import { ModalButton } from '@/components/ui/modals/variant-modals/modal-button.tsx'
 import { Slider } from '@/components/ui/slider'
 
 export function App() {
@@ -16,6 +18,11 @@ export function App() {
       <Slider disabled={false} min={0} max={120} step={5} value={val1} onValueChange={setVal1} />
       <Slider defaultValue={[-5, 200]} min={-20} max={220} />
       <Slider />
+      <Modal>HI</Modal>
+      <ModalButton />
+      <ModalButton double={true}>
+        sadasdqwereqwfq sadasdqwereqwfq sadasdqwereqwfq sadasdqwereqwfq
+      </ModalButton>
     </div>
   )
 }
