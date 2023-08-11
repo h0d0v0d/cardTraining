@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form'
+import { FieldValues, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui'
@@ -7,7 +7,7 @@ import { ControlledCheckbox } from '@/components/ui/controlled'
 const LoginSheme = z.object({
   email: z.string().email(),
   password: z.string().min(4),
-  rememberme: z.boolean().optional().default(false),
+  rememberMe: z.boolean().optional().default(false),
 })
 
 type LoginShemeType = z.infer<typeof LoginSheme>
