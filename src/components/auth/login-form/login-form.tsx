@@ -1,8 +1,9 @@
-import { FieldValues, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui'
-import { ControlledCheckbox } from '@/components/ui/controlled'
+import { ControlledCheckbox, ControlledTextFiled } from '@/components/ui/controlled'
 
 const LoginSheme = z.object({
   email: z.string().email(),
@@ -13,8 +14,14 @@ const LoginSheme = z.object({
 type LoginShemeType = z.infer<typeof LoginSheme>
 
 export const LoginForm = () => {
-  const { register, handleSubmit, control } = useForm<LoginShemeType>({
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<LoginShemeType>({
     mode: 'onChange',
+    resolver: zodResolver(LoginSheme),
   })
   const onSubmit = (data: any) => {
     console.log(data)
@@ -22,8 +29,18 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <input type="text" {...register('email')} />
-      <input type="text" {...register('password')} />
+      <ControlledTextFiled
+        name="email"
+        control={control}
+        defaultValue={''}
+        errorMessage={errors.email?.message}
+      />
+      <ControlledTextFiled
+        name="password"
+        control={control}
+        defaultValue={''}
+        errorMessage={errors.password?.message}
+      />
       <ControlledCheckbox name="rememberMe" control={control} />
       <Button type="submit">Sign in</Button>
     </form>
