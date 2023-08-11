@@ -1,4 +1,4 @@
-import { Variant } from '@/components/ui/typography'
+import { Variant } from '@/components/ui'
 
 export const getTag = (variant: Variant) => {
   if (/link_[12]/i.test(variant)) {

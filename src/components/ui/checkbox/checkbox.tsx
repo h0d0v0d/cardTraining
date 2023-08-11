@@ -6,8 +6,7 @@ import clsx from 'clsx'
 
 import s from './checkbox.module.scss'
 
-import { Typography } from '@/components/ui'
-import { Variant } from '@/components/ui/typography'
+import { Typography, Variant } from '@/components/ui'
 
 export type CheckboxProps = {
   checked?: boolean

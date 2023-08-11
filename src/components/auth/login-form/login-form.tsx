@@ -3,8 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { Button } from '@/components/ui'
-import { ControlledCheckbox, ControlledTextFiled } from '@/components/ui/controlled'
+import { Button, ControlledCheckbox, ControlledTextFiled } from '@/components/ui'
 
 const LoginSheme = z.object({
   email: z.string().email(),
