@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui'
+import { ControlledCheckbox } from '@/components/ui/controlled'
 
 const LoginSheme = z.object({
   email: z.string().email(),
@@ -12,7 +13,7 @@ const LoginSheme = z.object({
 type LoginShemeType = z.infer<typeof LoginSheme>
 
 export const LoginForm = () => {
-  const { register, handleSubmit } = useForm<LoginShemeType>({
+  const { register, handleSubmit, control } = useForm<LoginShemeType>({
     mode: 'onChange',
   })
   const onSubmit = (data: any) => {
@@ -23,6 +24,7 @@ export const LoginForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <input type="text" {...register('email')} />
       <input type="text" {...register('password')} />
+      <ControlledCheckbox name="rememberMe" control={control} />
       <Button type="submit">Sign in</Button>
     </form>
   )
