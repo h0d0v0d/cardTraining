@@ -1,17 +1,9 @@
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 
+import { LoginSheme, LoginShemeType } from '@/common/shemes'
 import { Button, ControlledCheckbox, ControlledTextFiled } from '@/components/ui'
-
-const LoginSheme = z.object({
-  email: z.string().email(),
-  password: z.string().min(4),
-  rememberMe: z.boolean().optional().default(false),
-})
-
-type LoginShemeType = z.infer<typeof LoginSheme>
 
 export const LoginForm = () => {
   const {
