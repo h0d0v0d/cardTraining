@@ -1,3 +1,5 @@
+import { FC } from 'react'
+
 import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -5,7 +7,11 @@ import { useForm } from 'react-hook-form'
 import { LoginSheme, LoginShemeType } from '@/common/shemes'
 import { Button, ControlledCheckbox, ControlledTextFiled, Typography } from '@/components/ui'
 
-export const LoginForm = () => {
+type LoginFormProps = {
+  onSubmit: (data: LoginShemeType) => void
+}
+
+export const LoginForm: FC<LoginFormProps> = () => {
   const {
     handleSubmit,
     control,
@@ -14,7 +20,7 @@ export const LoginForm = () => {
     mode: 'onChange',
     resolver: zodResolver(LoginSheme),
   })
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: LoginShemeType) => {
     console.log(data)
   }
 
@@ -33,6 +39,7 @@ export const LoginForm = () => {
         name="password"
         control={control}
         defaultValue={''}
+        password={true}
         errorMessage={errors.password?.message}
       />
       <ControlledCheckbox
@@ -48,7 +55,9 @@ export const LoginForm = () => {
       <Typography variant="Body_2" color="var(--color-light-900)">
         Dont have an account?
       </Typography>
-      <Button variant="link">Sign up</Button>
+      <Button as="a" variant="link" href="#">
+        Sign up
+      </Button>
     </form>
   )
 }
