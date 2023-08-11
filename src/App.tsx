@@ -1,13 +1,16 @@
 import { useState } from 'react'
 
-import { Typography, Header } from '@/components/ui'
+import { Typography, Header, Button } from '@/components/ui'
 import { Checkbox } from '@/components/ui/checkbox'
-import { Modal } from '@/components/ui/modals/modal.tsx'
-import { ModalButton } from '@/components/ui/modals/variant-modals/modal-button.tsx'
+import { Modal } from '@/components/ui/modals'
 import { Slider } from '@/components/ui/slider'
 
 export function App() {
   const [val1, setVal1] = useState([0, 100])
+  const [open, setOpen] = useState(false)
+  const onOpen = () => {
+    setOpen(false)
+  }
 
   return (
     <div>
@@ -18,11 +21,17 @@ export function App() {
       <Slider disabled={false} min={0} max={120} step={5} value={val1} onValueChange={setVal1} />
       <Slider defaultValue={[-5, 200]} min={-20} max={220} />
       <Slider />
-      <Modal>HI</Modal>
-      <ModalButton />
-      <ModalButton double={true}>
-        sadasdqwereqwfq sadasdqwereqwfq sadasdqwereqwfq sadasdqwereqwfq
-      </ModalButton>
+      <Button
+        onClick={() => {
+          setOpen(true)
+        }}
+      >
+        open
+      </Button>
+      <Modal isOpen={open} onAction={onOpen} titleModal={'asd'}>
+        asdasffsd
+        <Button onClick={onOpen}>hi</Button>
+      </Modal>
     </div>
   )
 }

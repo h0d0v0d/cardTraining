@@ -2,10 +2,10 @@
   position: fixed;
   inset: 0;
 
-  opacity: 0.3;
+  opacity: 0.5;
   background: var(--dark-500, #333);
 
-  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: overlay-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header {
@@ -32,17 +32,13 @@
 
   width: 90vw;
   max-width: 450px;
-  max-height: 85vh;
 
   background: var(--dark-700, #171717);
   border: 1px solid var(--dark-500, #333);
   border-radius: 2px 2px 0 0;
   outline: none;
-  box-shadow:
-    hsl(206deg 22% 7% / 35%) 0 10px 38px -10px,
-    hsl(206deg 22% 7% / 20%) 0 10px 20px -15px;
 
-  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: content-show 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .DialogContent:focus {
@@ -67,4 +63,26 @@
 
 .description {
   padding: 18px 24px;
+}
+
+@keyframes overlay-show {
+  from {
+    transform: translate(-50%, -50%) opacity(0);
+  }
+
+  to {
+    transform: translate(-50%, -50%) opacity(1);
+  }
+}
+
+@keyframes content-show {
+  from {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
 }

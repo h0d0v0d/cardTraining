@@ -5,46 +5,50 @@ import * as Dialog from '@radix-ui/react-dialog'
 import s from './modal.module.scss'
 
 import { Close } from '@/assets/icons/components'
-import { Button, Typography } from '@/components/ui'
+import { Typography } from '@/components/ui'
 import { Variant } from '@/components/ui/typography'
 
 export type ModalProps = {
   defaultOpen?: boolean
-  open?: boolean
-  onOpenChange?: (open: boolean) => void
+  isOpen: boolean
+  onClose?: () => void
+  onAction: () => void
   modal?: boolean
-  title?: string
-  variantTypography?: Variant
+  titleModal: string
+  variantTypographyModal?: Variant
   children?: ReactNode
 }
 export const Modal: FC<ModalProps> = ({
   defaultOpen = false,
-  open = false,
-  onOpenChange,
+  isOpen,
+  onClose,
+  onAction,
   modal = true,
-  title = 'Title',
-  variantTypography = 'Body_2',
+  titleModal = 'Title',
+  variantTypographyModal = 'Body_2',
   children,
 }) => {
+  const handleOnModalChange = () => {
+    onClose?.()
+  }
+
   return (
     <Dialog.Root
-      open={open ? open : undefined}
-      onOpenChange={onOpenChange ? onOpenChange : undefined}
+      open={isOpen}
+      onOpenChange={handleOnModalChange}
       modal={modal}
       defaultOpen={defaultOpen}
     >
-      <Dialog.Trigger asChild>
-        <Button>modal</Button>
-      </Dialog.Trigger>
+      <Dialog.Trigger asChild></Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className={s.dialogOverlay} />
         <Dialog.Content className={s.dialogContent}>
           <header className={s.header}>
             <Dialog.Title className={s.title}>
-              <Typography variant={variantTypography}>{title}</Typography>
+              <Typography variant={variantTypographyModal}>{titleModal}</Typography>
             </Dialog.Title>
             <Dialog.Close asChild className={s.buttonClose}>
-              <Close color={'#fff'} />
+              <Close color={'#fff'} onClick={onAction} />
             </Dialog.Close>
           </header>
           <Dialog.Description className={s.description}>{children}</Dialog.Description>
