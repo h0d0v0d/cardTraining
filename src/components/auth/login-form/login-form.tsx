@@ -16,7 +16,6 @@ type LoginShemeType = z.infer<typeof LoginSheme>
 
 export const LoginForm = () => {
   const {
-    register,
     handleSubmit,
     control,
     formState: { errors },
