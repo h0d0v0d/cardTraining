@@ -4,22 +4,22 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
-import { LoginSheme, LoginShemeType } from '@/common/shemes'
+import { SignUpSheme, SignUpShemeType } from '@/common/shemes'
 import { Button, ControlledTextFiled, Typography } from '@/components/ui'
 
 type SignUpProps = {
-  onSubmit: (data: LoginShemeType) => void
+  onSubmit: (data: SignUpShemeType) => void
 }
 export const SignUp: FC<SignUpProps> = () => {
   const {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<LoginShemeType>({
+  } = useForm<SignUpShemeType>({
     mode: 'onChange',
-    resolver: zodResolver(LoginSheme),
+    resolver: zodResolver(SignUpSheme),
   })
-  const onSubmit = (data: LoginShemeType) => {
+  const onSubmit = (data: SignUpShemeType) => {
     console.log(data)
   }
 
