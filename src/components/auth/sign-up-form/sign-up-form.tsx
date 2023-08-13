@@ -19,6 +19,9 @@ export const SignUp: FC<SignUpProps> = () => {
     mode: 'onChange',
     resolver: zodResolver(SignUpSheme),
   })
+
+  console.log(errors)
+
   const onSubmit = (data: SignUpShemeType) => {
     console.log(data)
   }
