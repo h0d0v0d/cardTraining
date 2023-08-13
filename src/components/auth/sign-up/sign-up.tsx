@@ -49,7 +49,7 @@ export const SignUp: FC<SignUpProps> = () => {
         errorMessage={errors.confirm?.message}
         label={'Confirm Password'}
       />
-      <Button variant={'primary'} fullWidth={true}>
+      <Button variant={'primary'} fullWidth={true} type="submit">
         Sign Up
       </Button>
       <Typography variant="Body_2" color="var(--color-light-900)">
