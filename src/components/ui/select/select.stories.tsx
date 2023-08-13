@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Select, ShowOnPageSelectProps } from './'
+import { Select, SelectProps } from './'
 
 const meta = {
   title: 'Components/Select',
@@ -13,7 +13,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 export const Example1: Story = {
-  render: (args: ShowOnPageSelectProps) => {
+  render: (args: SelectProps) => {
     const [value, setValue] = useState(args.selectCurrent)
 
     return (
@@ -34,7 +34,7 @@ export const Example1: Story = {
   },
 }
 export const Example2: Story = {
-  render: (args: ShowOnPageSelectProps) => {
+  render: (args: SelectProps) => {
     const [value, setValue] = useState(args.selectCurrent)
 
     return (

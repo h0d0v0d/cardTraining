@@ -9,7 +9,7 @@ import s from './select.module.scss'
 
 import { ArrowDown } from '@/assets/icons/components'
 
-export type ShowOnPageSelectProps = {
+export type SelectProps = {
   selectCurrent: string
   selectOptions: string[]
   onSelectChange?: (item: string) => void
@@ -17,7 +17,7 @@ export type ShowOnPageSelectProps = {
   disabled?: boolean
   className?: string
 }
-export const Select: FC<ShowOnPageSelectProps> = ({
+export const Select: FC<SelectProps> = ({
   selectCurrent,
   selectOptions,
   onSelectChange,

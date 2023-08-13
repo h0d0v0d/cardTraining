@@ -2,8 +2,7 @@ import { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react'
 
 import s from './button.module.scss'
 
-import { Typography } from '@/components/ui'
-import { Variant } from '@/components/ui/typography'
+import { Typography, Variant } from '@/components/ui'
 
 export type ButtonProps<T extends ElementType = 'button'> = {
   as?: T

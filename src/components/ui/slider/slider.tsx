@@ -4,7 +4,7 @@ import * as SliderRadix from '@radix-ui/react-slider'
 
 import s from './slider.module.scss'
 
-import { Typography, Variant } from '@/components/ui/typography'
+import { Typography, Variant } from '@/components/ui'
 
 export type SliderProps = {
   defaultValue?: number[]
