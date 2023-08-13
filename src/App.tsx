@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { SignUp } from '@/components/auth/sign-up/sign-up.tsx'
 import { Typography, Header, Checkbox, Slider } from '@/components/ui'
 
 export function App() {
@@ -14,6 +15,11 @@ export function App() {
       <Slider disabled={false} min={0} max={120} step={5} value={val1} onValueChange={setVal1} />
       <Slider defaultValue={[-5, 200]} min={-20} max={220} />
       <Slider />
+      <SignUp
+        onSubmit={() => {
+          console.log('hi')
+        }}
+      />
     </div>
   )
 }
