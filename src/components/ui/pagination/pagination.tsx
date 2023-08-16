@@ -6,9 +6,9 @@ import { Select } from '../select'
 import { Typography } from '../typography'
 
 import s from './pagination.module.scss'
-import { usePagination } from './usePagination.ts'
 
 import { ArrowBack, ArrowForward } from '@/assets/icons/components'
+import { usePagination } from '@/common/hooks'
 
 export const Pagination: FC<PaginationProps> = ({
   page,
