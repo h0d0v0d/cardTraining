@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import { EditProfile } from '@/components/auth/edit-profile/edit-profile.tsx'
 import { Typography, Header, Button } from '@/components/ui'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Modal } from '@/components/ui/modals'
@@ -33,7 +32,6 @@ export function App() {
         asdasffsd
         <Button onClick={onOpen}>hi</Button>
       </Modal>
-      <EditProfile />
     </div>
   )
 }
