@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
-import { CheckEmail } from '@/components/auth/check-email'
-import { CreateNewPassword } from '@/components/auth/create-new-password/create-new-password.tsx'
+import { EditProfile } from '@/components/auth/edit-profile/edit-profile.tsx'
 import { Typography, Header, Button } from '@/components/ui'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Modal } from '@/components/ui/modals'
@@ -34,7 +33,7 @@ export function App() {
         asdasffsd
         <Button onClick={onOpen}>hi</Button>
       </Modal>
-      <CreateNewPassword onSubmit={() => {}} />
+      <EditProfile />
     </div>
   )
 }

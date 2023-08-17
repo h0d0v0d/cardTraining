@@ -10,6 +10,7 @@ export type ButtonProps<T extends ElementType = 'button'> = {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'link'
   fullWidth?: boolean
   className?: string
+  icon?: ReactNode
   variantTypography?: Variant
 } & ComponentPropsWithoutRef<T>
 
@@ -21,12 +22,14 @@ export const Button = <T extends ElementType = 'button'>(props: ButtonProps<T>) 
     as: Component = 'button',
     variantTypography = 'Subtitle_2',
     children,
+    icon,
     ...rest
   } = props
   const buttonClass = `${s[variant]} ${fullWidth ? s.fullWidth : ''} ${className}`
 
   return (
     <Component className={buttonClass} {...rest}>
+      {icon}
       <Typography variant={variantTypography} color={buttonClass}>
         {children}
       </Typography>
