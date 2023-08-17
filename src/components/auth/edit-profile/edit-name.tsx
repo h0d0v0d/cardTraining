@@ -4,12 +4,14 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
+import s from './edit-name.module.scss'
+
 import { EditNameSheme, EditNameShemeType } from '@/common/shemes/editNameShreme.ts'
 import { Button, ControlledTextFiled } from '@/components/ui'
 
 type EditNameProps = {
   saveName: (name: string) => void
-  name?: string
+  name: string
 }
 export const EditName: FC<EditNameProps> = ({ saveName, name }) => {
   const {
@@ -25,22 +27,25 @@ export const EditName: FC<EditNameProps> = ({ saveName, name }) => {
   })
 
   const onSubmit = (data: EditNameShemeType) => {
+    console.log(data.name)
     saveName(data.name)
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <DevTool control={control} />
-      <ControlledTextFiled
-        name="name"
-        control={control}
-        defaultValue={name}
-        errorMessage={errors.name?.message}
-        label={'Nickname'}
-      />
-      <Button variant={'primary'} fullWidth={true} type="submit">
-        Save Changes
-      </Button>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)} className={s.nameContainer}>
+        <DevTool control={control} />
+        <ControlledTextFiled
+          name="name"
+          control={control}
+          defaultValue={name}
+          errorMessage={errors.name?.message}
+          label={'Nickname'}
+        />
+        <Button variant={'primary'} fullWidth={true} type="submit">
+          Save Changes
+        </Button>
+      </form>
+    </div>
   )
 }

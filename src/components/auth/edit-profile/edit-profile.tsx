@@ -38,6 +38,7 @@ export const EditProfile: FC<EditProfileProps> = ({
   }
   const onPhotoChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.currentTarget.files?.length) {
+      console.log(e.currentTarget.files[0])
       onPhotoEdit?.(e.currentTarget.files[0])
     }
   }

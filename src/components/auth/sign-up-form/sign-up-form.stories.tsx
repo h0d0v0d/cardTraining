@@ -1,9 +1,10 @@
+import { actions } from '@storybook/addon-actions'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { SignUp } from './sign-up-form.tsx'
+import { SignUp, SignUpProps } from './sign-up-form.tsx'
 
 const meta = {
-  title: 'Components/SignUpForm',
+  title: 'Auth/SignUpForm',
   component: SignUp,
   tags: ['autodocs'],
   argTypes: {},
@@ -13,5 +14,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Form: Story = {
-  args: {},
+  render: (args: SignUpProps) => {
+    return <SignUp onSubmit={args.onSubmit} />
+  },
+  args: {
+    onSubmit: actions('check'),
+  },
 }

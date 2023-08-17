@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 0.0625rem solid var(--color-dark-500, #333);
+
+  .containerInput {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    min-width: 21.75rem;
+    margin-bottom: 3.75rem;
+  }
+
+  .text {
+    padding-top: 1.25rem;
+    text-align: center;
+  }
+
+  .button {
+    text-decoration: underline;
+  }
+}

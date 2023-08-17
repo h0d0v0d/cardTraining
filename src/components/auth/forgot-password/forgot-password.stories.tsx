@@ -1,9 +1,13 @@
+import { actions } from '@storybook/addon-actions'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ForgotPassword } from '@/components/auth/forgot-password/forgot-password.tsx'
+import {
+  ForgotPassword,
+  ForgotPasswordProps,
+} from '@/components/auth/forgot-password/forgot-password.tsx'
 
 const meta = {
-  title: 'Components/ForgotPassword',
+  title: 'Auth/ForgotPassword',
   component: ForgotPassword,
   tags: ['autodocs'],
   argTypes: {},
@@ -13,5 +17,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Form: Story = {
-  args: {},
+  render: (args: ForgotPasswordProps) => {
+    return <ForgotPassword onCreate={args.onCreate} />
+  },
+  args: {
+    onCreate: actions('send'),
+  },
 }

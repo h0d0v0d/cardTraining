@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { CreateNewPassword } from '@/components/auth/create-new-password'
 import { Typography, Header, Button } from '@/components/ui'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Modal } from '@/components/ui/modals'
@@ -32,6 +33,7 @@ export function App() {
         asdasffsd
         <Button onClick={onOpen}>hi</Button>
       </Modal>
+      <CreateNewPassword createPassword={() => {}} />
     </div>
   )
 }

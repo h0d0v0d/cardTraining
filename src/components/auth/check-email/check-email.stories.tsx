@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { CheckEmail } from '@/components/auth/check-email/check-email.tsx'
 
 const meta = {
-  title: 'Components/CheckEmail',
+  title: 'Auth/CheckEmail',
   component: CheckEmail,
   tags: ['autodocs'],
   argTypes: {},
@@ -13,5 +13,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Form: Story = {
-  args: {},
+  args: {
+    email: 'example@mail.com',
+  },
 }

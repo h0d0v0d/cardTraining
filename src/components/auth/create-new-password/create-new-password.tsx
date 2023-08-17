@@ -4,13 +4,15 @@ import { DevTool } from '@hookform/devtools'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 
+import s from './create-new-password.module.scss'
+
 import { NewPasswordSheme, NewPasswordShemeType } from '@/common/shemes/newPasswordSheme.ts'
 import { Button, Card, ControlledTextFiled, Typography } from '@/components/ui'
 
-type CreateNewPasswordProps = {
-  onSubmit: (data: NewPasswordShemeType) => void
+export type CreateNewPasswordProps = {
+  createPassword: (data: NewPasswordShemeType) => void
 }
-export const CreateNewPassword: FC<CreateNewPasswordProps> = () => {
+export const CreateNewPassword: FC<CreateNewPasswordProps> = ({ createPassword }) => {
   const {
     handleSubmit,
     control,
@@ -20,16 +22,14 @@ export const CreateNewPassword: FC<CreateNewPasswordProps> = () => {
     resolver: zodResolver(NewPasswordSheme),
   })
 
-  console.log(errors)
-
-  const onSubmit = (data: NewPasswordShemeType) => {
-    onSubmit(data)
+  const createPasswordHandler = (data: NewPasswordShemeType) => {
     console.log(data)
+    createPassword(data)
   }
 
   return (
-    <Card title={'Create new password'}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <Card title={'Create new password'} className={s.card}>
+      <form onSubmit={handleSubmit(createPasswordHandler)}>
         <DevTool control={control} />
         <ControlledTextFiled
           name="password"
@@ -39,9 +39,11 @@ export const CreateNewPassword: FC<CreateNewPasswordProps> = () => {
           label={'Password'}
           password={true}
         />
-        <Typography variant="Body_2" color="var(--color-dark-100)">
-          Create new password and we will send you further instructions to email
-        </Typography>
+        <div className={s.text}>
+          <Typography variant="Body_2" color="var(--color-light-900)">
+            Create new password and we will send you further instructions to email
+          </Typography>
+        </div>
         <Button variant={'primary'} fullWidth={true} type="submit">
           Create New Password
         </Button>

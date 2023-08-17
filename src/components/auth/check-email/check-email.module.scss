@@ -1,0 +1,15 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 0.0625rem solid var(--color-dark-500, #333);
+
+  .text {
+    margin-top: 1.25rem;
+    margin-bottom: 3.75rem;
+    text-align: center;
+    opacity: 0.5;
+  }
+}
