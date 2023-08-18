@@ -1,9 +1,10 @@
+import { action } from '@storybook/addon-actions'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { LoginForm } from './login-form'
+import { LoginForm, LoginFormProps } from './login-form'
 
 const meta = {
-  title: 'Components/LoginForm',
+  title: 'Auth/LoginForm',
   component: LoginForm,
   tags: ['autodocs'],
   argTypes: {},
@@ -13,5 +14,10 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Form: Story = {
-  args: {},
+  render: (args: LoginFormProps) => {
+    return <LoginForm onSubmit={args.onSubmit} />
+  },
+  args: {
+    onSubmit: action('login'),
+  },
 }
