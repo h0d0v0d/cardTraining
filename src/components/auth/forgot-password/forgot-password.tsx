@@ -28,10 +28,7 @@ export const ForgotPassword: FC<ForgotPasswordProps> = ({ onCreate }) => {
     },
   })
 
-  console.log(errors)
-
   const onSubmit = (data: ForgotPasswordShemeType) => {
-    console.log(data)
     onCreate(data)
   }
 
