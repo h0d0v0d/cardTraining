@@ -22,10 +22,7 @@ export const SignUp: FC<SignUpProps> = ({ onSubmit }) => {
     resolver: zodResolver(SignUpSheme),
   })
 
-  console.log(errors)
-
   const onSubmitHandler = (data: SignUpShemeType) => {
-    console.log(data)
     onSubmit(data)
   }
 
