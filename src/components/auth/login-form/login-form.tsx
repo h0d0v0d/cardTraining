@@ -23,7 +23,6 @@ export const LoginForm: FC<LoginFormProps> = ({ onSubmit }) => {
     resolver: zodResolver(LoginSheme),
   })
   const onSubmitHandler = (data: LoginShemeType) => {
-    console.log(data)
     onSubmit(data)
   }
 
