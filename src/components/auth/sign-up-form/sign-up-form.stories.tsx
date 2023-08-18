@@ -1,4 +1,4 @@
-import { actions } from '@storybook/addon-actions'
+import { action } from '@storybook/addon-actions'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { SignUp, SignUpProps } from './sign-up-form.tsx'
@@ -18,6 +18,6 @@ export const Form: Story = {
     return <SignUp onSubmit={args.onSubmit} />
   },
   args: {
-    onSubmit: actions('check'),
+    onSubmit: action('check'),
   },
 }

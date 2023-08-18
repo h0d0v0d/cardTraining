@@ -1,4 +1,4 @@
-import { actions } from '@storybook/addon-actions'
+import { action } from '@storybook/addon-actions'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import {
@@ -21,6 +21,6 @@ export const Form: Story = {
     return <ForgotPassword onCreate={args.onCreate} />
   },
   args: {
-    onCreate: actions('send'),
+    onCreate: action('forgot'),
   },
 }

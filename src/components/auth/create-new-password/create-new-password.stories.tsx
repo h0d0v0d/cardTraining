@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { actions } from '@storybook/addon-actions'
+import { action } from '@storybook/addon-actions'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import {
@@ -20,15 +20,9 @@ type Story = StoryObj<typeof meta>
 
 export const Form: Story = {
   render: (args: CreateNewPasswordProps) => {
-    const [password, setPassword] = useState('')
-    const handler = (password: string) => {
-      args.createPassword(password)
-      setPassword(password)
-    }
-
     return <CreateNewPassword createPassword={args.createPassword} />
   },
   args: {
-    createPassword: actions('asd'),
+    createPassword: action('asd'),
   },
 }

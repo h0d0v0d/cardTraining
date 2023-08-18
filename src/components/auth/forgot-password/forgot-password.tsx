@@ -59,7 +59,7 @@ export const ForgotPassword: FC<ForgotPasswordProps> = ({ onCreate }) => {
           Did you remember your password?
         </Typography>
       </div>
-      <Button as={'a'} variant={'link'} href={'*'} className={'color: var(--color-accent-500)'}>
+      <Button as={'a'} variant={'link'} href={'*'} className={s.button}>
         Try logging in
       </Button>
     </Card>
