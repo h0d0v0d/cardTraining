@@ -1,9 +1,6 @@
 import { useState } from 'react'
 
-import { Typography, Header, Button } from '@/components/ui'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Modal } from '@/components/ui/modals'
-import { Slider } from '@/components/ui/slider'
+import { Typography, Header, Button, Checkbox, Modal, Slider } from '@/components/ui'
 
 export function App() {
   const [val1, setVal1] = useState([0, 100])

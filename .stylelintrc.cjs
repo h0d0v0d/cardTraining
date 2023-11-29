@@ -1,4 +1,4 @@
 module.exports = {
     extends: '@it-incubator/stylelint-config',
-    ignoreFiles: ['**/*.ts', '**/*.tsx', '.stylelintrc.cjs']
+    ignoreFiles: ['**/*.ts', '**/*.tsx', '.stylelintrc.cjs', '**/*.cjs', '**/*.html', '**/*.svg']
   }
